@@ -32,7 +32,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 				.antMatchers("/registration","/userStatusList","/test").permitAll()          //userStatus Test 위해 추가함
 				.antMatchers("/addDuty","/addMembers","/calendar","/calendarE").hasAnyAuthority("duty100","duty200","duty300","duty400")
 				.antMatchers("/authorityConfig/**").hasAuthority("duty100")
-				.antMatchers("/adminMain","/main", "/main/outputAllStatus", "/teamSettingList", "/getTeamDetail", "/updateTeam", "/admin/**/**", "/admin/userSetting", "/goProjectAdd", "/project/detailInfo/**", "/projectMember/**", "/dashBoardAll", "/dashBoardDetail/**").hasAnyAuthority("duty100","duty200")
+				.antMatchers("/adminMain","/main", "/main/outputAllStatus", "/teamSettingList", "/getTeamDetail", "/updateTeam", "/admin/**/**", "/admin/userSetting", "/goProjectAdd", "/project/detailInfo/**", "/projectMember/**"/*, "/dashBoardAll", "/dashBoardDetail/**"*/).hasAnyAuthority("duty100","duty200")
 				.anyRequest().authenticated()
 			.and()
 				.formLogin()
