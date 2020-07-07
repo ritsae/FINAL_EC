@@ -29,7 +29,6 @@ import lombok.AllArgsConstructor;
 @Controller
 @AllArgsConstructor
 public class DashBoardController {
-	
 	private DashBoardDetailService dashBoardDetailService;
 	private DashBoardAllService dashBoardAllService;
 	private DashBoardUserService dashBoardUserService;

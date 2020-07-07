@@ -5,34 +5,34 @@
 <mapper namespace="com.project.bit.dashBoard.mapper.DashBoardAllMapper">
     <select id="selectKeyProject" resultType="com.project.bit.project.domain.ProjectDTO">
         <![CDATA[
-        select * from(select p.*, ps.project_status as project_status_name, pt.project_type as project_type_name
-            from projects p
-            inner join project_status ps on p.project_statusCode = ps.project_statusCode
-            inner join project_types pt on p.project_typeCode = pt.project_typeCode order by p.project_finish ASC) where ROWNUM<=3
+        SELECT * FROM(SELECT p.*, ps.project_status AS project_status_name, pt.project_type AS project_type_name
+            FROM projects p
+            INNER JOIN project_status ps ON p.project_statusCode = ps.project_statusCode
+            INNER JOIN project_types pt ON p.project_typeCode = pt.project_typeCode ORDER BY p.project_finish ASC) WHERE ROWNUM<=3
         ]]>
     </select>
     <select id="selectProjectAllStatusCount" resultType="com.project.bit.dashBoard.domain.ProjectStatusVO">
-        select t.project_type as project_status_name, count(p.project_typecode) as project_status_all,
-            count(case when project_statuscode = 'projstatus100' then 1 end) as project_status_process,
-            count(case when project_statuscode = 'projstatus200' then 1 end) as project_status_complete,
-            count(case when project_statuscode = 'projstatus300' then 1 end) as project_status_stop,
-            count(case when project_statuscode = 'projstatus400' then 1 end) as project_status_standBy
-        from project_types t
-        left outer join projects p on t.project_typecode = p.project_typecode group by t.project_type
+        SELECT t.project_type AS project_status_name, COUNT(p.project_typecode) AS project_status_all,
+            COUNT(CASE WHEN project_statuscode = 'projstatus100' THEN 1 END) AS project_status_process,
+            COUNT(CASE WHEN project_statuscode = 'projstatus200' THEN 1 END) AS project_status_complete,
+            COUNT(CASE WHEN project_statuscode = 'projstatus300' THEN 1 END) AS project_status_stop,
+            COUNT(CASE WHEN project_statuscode = 'projstatus400' THEN 1 END) AS project_status_standBy
+        FROM project_types t
+        LEFT OUTER JOIN projects p ON t.project_typecode = p.project_typecode GROUP BY t.project_type
     </select>
     <select id="selectProjectAllStatus" resultType="com.project.bit.dashBoard.domain.ProjectStatusCountVO">
-        select count(p.project_statuscode) as project_status,
-            ps.project_status as project_status_name
-        from projects p, project_status ps
-        where p.project_statuscode=ps.project_statuscode
-        group by ps.project_status
+        SELECT COUNT(p.project_statuscode) AS project_status,
+            ps.project_status AS project_status_name
+        FROM projects p, project_status ps
+        WHERE p.project_statuscode=ps.project_statuscode
+        GROUP BY ps.project_status
     </select>
     <select id="selectIssueAllStatus" resultType="com.project.bit.dashBoard.domain.IssueStatusCountVO">
-        select count(i.issue_code) as issue_status,
-            it.issue_type as issue_status_name
-        from project_issues i, project_issue_types it
-        where i.issue_type_code=it.issue_type_code
-        group by it.issue_type
+        SELECT COUNT(i.issue_code) AS issue_status,
+            it.issue_type AS issue_status_name
+        FROM project_issues i, project_issue_types it
+        WHERE i.issue_type_code=it.issue_type_code
+        GROUP BY it.issue_type
     </select>
     <select id="selectMonthlyProjectStatus" resultType="com.project.bit.dashBoard.domain.MonthlyProjectCountVO">
         SELECT

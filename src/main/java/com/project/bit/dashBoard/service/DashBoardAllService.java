@@ -15,7 +15,6 @@ public interface DashBoardAllService {
 	public List<ProjectStatusCountVO> getProjectAllStatus();
 	public List<ProjectTypeCountVO> getProjectAllType();
 	public List<MonthlyProjectCountVO> getMonthlyProject();
-
 	public List<ProjectDTO> getKeyProject();
 
 }

@@ -18,6 +18,5 @@ public interface DashBoardAllMapper {
     public List<ProjectStatusCountVO> selectProjectAllStatus();
     public List<ProjectTypeCountVO> selectProjectAllType();
     public List<MonthlyProjectCountVO> selectMonthlyProjectStatus();
-
     public List<ProjectDTO> selectKeyProject();
 }

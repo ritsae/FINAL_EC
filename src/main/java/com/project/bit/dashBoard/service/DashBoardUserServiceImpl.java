@@ -15,7 +15,6 @@ public class DashBoardUserServiceImpl implements DashBoardUserService {
 
     @Override
     public UserCountVO getDashBoardUserCount(String userId) {
-        /* or hashmap 사용 */
         UserCountVO countVO = new UserCountVO();
         countVO.setUserIssueCount(dashBoardUserMapper.selectIssueCount(userId));
         countVO.setUserOutputCount(dashBoardUserMapper.selectOutputCount(userId));
