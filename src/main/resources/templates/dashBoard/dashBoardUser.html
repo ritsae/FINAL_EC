@@ -5,7 +5,7 @@
 <head>
     <title id="pageTitle">유저 대시보드</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/dashBoard/dashBoardStyle.css">
+    <link rel="stylesheet" th:href="@{/css/dashBoard/dashBoardStyle.css}">
     <style>
         a:hover {
             text-decoration: none !important;
@@ -13,8 +13,8 @@
         }
     </style>
     <!-- JS -->
-    <script src="/js/dashBoard/dashBoardChart.js"></script>
-    <script src="/js/dashBoard/dashBoardUser.js"></script>
+    <script th:src="@{/js/dashBoard/dashBoardChart.js}"></script>
+    <script th:src="@{/js/dashBoard/dashBoardUser.js}"></script>
 </head>
 <div layout:fragment="content">
     <div class="row">
