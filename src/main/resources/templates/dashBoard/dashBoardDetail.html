@@ -60,7 +60,11 @@
             </div>
         </div>
     </div> <!-- row end -->
-    <div th:replace="/project/projectDetailChart :: project-detail-chart"></div>
+    <div th:replace="project/projectDetailChart :: project-detail-chart"></div>
+    <script type="text/javascript">
+        // select2 초기화
+        $('select').select2({});
+    </script>
 
 </div>
 
