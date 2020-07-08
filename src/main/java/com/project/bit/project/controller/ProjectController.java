@@ -27,14 +27,8 @@ public class ProjectController {
 	@Autowired private ProjectService projectService;
 	@Autowired private ProjectTaskService projectTaskService;
 	
-	// main으로 이동
-	@GetMapping("/index")
-	public String goIndex() {
-		return "index";
-	}
-	
 	// 프로젝트 리스트
-	@GetMapping("/projectList")
+	@GetMapping("projectList")
 	public String getProjectList(ProjectCriteria cri, Model model, @AuthenticationPrincipal UsersPrincipal user) {
 		if(user.getUsers().getDutyCode().equals("duty100")||user.getUsers().getDutyCode().equals("duty200")) {
 			model.addAttribute("projectList", projectService.getProjectListAll(cri));
@@ -47,7 +41,7 @@ public class ProjectController {
 		return "/project/getProjectList";
 	}
 	
-	@GetMapping("/project/type/search/{typeCode}")
+	@GetMapping("project/type/search/{typeCode}")
 	public String getProjectListByType(@PathVariable("typeCode") String typeCode,
 			ProjectCriteria cri, Model model) {
 		model.addAttribute("projectList", projectService.getProjectListByType(cri, typeCode));
@@ -58,7 +52,7 @@ public class ProjectController {
 		return "/project/getProjectList";
 	}
 	
-	@GetMapping("/project/name/search/{typeCode}/{name}")
+	@GetMapping("project/name/search/{typeCode}/{name}")
 	public String getProjectListSearch(@PathVariable("typeCode") String typeCode, @PathVariable("name") String name,
 			ProjectCriteria cri, Model model) {
 		if(typeCode.equals("all") && typeCode.equals("")) return "redirect:/projectList";
