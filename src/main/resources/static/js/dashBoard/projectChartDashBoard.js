@@ -12,7 +12,7 @@ function selectEvent(target){
 }
 function projectInfo(target){
 	$.ajax({
-		url: 'project/detail/info/' + target.val(),
+		url: '/project/detail/info/' + target.val(),
 		type: 'get',
 	}).done(function(project){
 		console.log(project)
@@ -30,7 +30,7 @@ function projectInfo(target){
 
 function ajaxMethod(target){
 	$.ajax({
-		url : 'project/detail/taskChart',
+		url : '/project/detail/taskChart',
 		type : 'GET',
 		data : {
 			projectId : target.val()
@@ -47,7 +47,7 @@ function ajaxMethod(target){
 	
 	
 	$.ajax({
-		url : 'project/detail/issueChart',
+		url : '/project/detail/issueChart',
 		type : 'GET',
 		data : {
 			projectId : target.val()
@@ -63,7 +63,7 @@ function ajaxMethod(target){
 	})
 	
 	$.ajax({
-		url: 'projectMemberInfo/gantt',
+		url: '/projectMemberInfo/gantt',
 		type: 'get',
 		data: {projectCode : target.val()},
 		dataType: 'JSON'

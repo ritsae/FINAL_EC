@@ -1,6 +1,6 @@
 $(function(){
 	$.ajax({
-		url : 'project/detail/taskChart',
+		url : '/project/detail/taskChart',
 		type : 'GET',
 		data : {
 			projectId : $('#projectCode').val()
@@ -17,7 +17,7 @@ $(function(){
 	
 	
 	$.ajax({
-		url : 'project/detail/issueChart',
+		url : '/project/detail/issueChart',
 		type : 'GET',
 		data : {
 			projectId : $('#projectCode').val()
@@ -33,7 +33,7 @@ $(function(){
 	})
 	
 	$.ajax({
-		url: 'projectMemberInfo/gantt',
+		url: '/projectMemberInfo/gantt',
 		type: 'get',
 		data: {projectCode : $('#projectCode').val()},
 		dataType: 'JSON'
