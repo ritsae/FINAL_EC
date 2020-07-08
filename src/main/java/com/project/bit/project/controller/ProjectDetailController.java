@@ -47,20 +47,20 @@ public class ProjectDetailController {
 	@RequestMapping("/project/{projectId}")
 	public String getProjectDetailChart(@PathVariable String projectId, Model model) {
 		model.addAttribute("project", projectDetailService.getProjectInfo(projectId));
-		return "/project/projectDetailChart";
+		return "project/projectDetailChart";
 	}
 	
 	// 프로젝트 상세 정보
 	@GetMapping("/project/detailInfo/{projectId}")
 	public String getProjectDetail(@PathVariable String projectId, Model model) {
 		model.addAttribute("project", projectDetailService.getProjectOne(projectId));
-		return "/project/projectDetail";
+		return "project/projectDetail";
 	}
 	
 	// 프로젝트 등록 페이지로 이동
 	@GetMapping("/goProjectAdd")
 	public String goProjectAdd(@ModelAttribute ProjectDTO projectDTO, Model model) {
-		return "/project/projectInsert";
+		return "project/projectInsert";
 	}
 	
 	// 프로젝트 삭제
@@ -75,7 +75,7 @@ public class ProjectDetailController {
 	public String getProjectMember(@PathVariable String projectId, Model model) {
 		model.addAttribute("project", projectDetailService.getProjectOne(projectId));
 		model.addAttribute("projectMembers", projectMemberService.getProjectMember(projectId));
-		return "/project/projectMember";
+		return "project/projectMember";
 	}
 	
 	// 프로젝트 이슈 페이지로 이동
@@ -83,7 +83,7 @@ public class ProjectDetailController {
 	public String getProjectIssueList(@PathVariable String projectId, Model model) {
 		model.addAttribute("project", projectDetailService.getProjectOne(projectId));
 		model.addAttribute("issueList", projectIssueService.getProjectIssueList(projectId));
-		return "/project/projectIssue";
+		return "project/projectIssue";
 	}
 	
 	// 프로젝트 작업 페이지로 이동

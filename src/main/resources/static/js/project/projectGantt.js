@@ -5,7 +5,7 @@ $(function(){
 
 function gantt(){
 	$.ajax({
-		url: '/projectMemberInfo/gantt',
+		url: 'projectMemberInfo/gantt',
 		type: 'get',
 		data: {projectCode : $('#project-code').val()},
 		dataType: 'JSON'

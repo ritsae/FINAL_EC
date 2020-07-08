@@ -14,7 +14,7 @@ function dropDownEvent(){
 	/* dropDown */
 	$('#pmTeamChoice').on('change', function(){		
 		$.ajax({
-			url : '/project/team',
+			url : 'project/team',
 			type : 'GET',
 			data : {
 				teamCode : $('#pmTeamChoice').val()
@@ -40,7 +40,7 @@ function dropDownEvent(){
 	
 	$('#pmoTeamChoice').on('change', function(){		
 		$.ajax({
-			url : '/project/team',
+			url : 'project/team',
 			type : 'GET',
 			data : {
 				teamCode : $('#pmoTeamChoice').val()
@@ -67,7 +67,7 @@ function dropDownEvent(){
 function insertProject(){
 	$('#update_btn').on('click',function(){
 		$.ajax({
-			url : '/project/'+$('#projectCode').val(),
+			url : 'project/'+$('#projectCode').val(),
 			type : 'PUT',
 			data : {
 				projectName : $('#projectName').val(),
@@ -119,7 +119,7 @@ function regExp(){
 function check(){
 	$('#check_btn').on('click', function(){
 		$.ajax({
-			url: '/project/subName/check',
+			url: 'project/subName/check',
 			type: 'GET',
 			data: {subName : $('#project-subName').val()}
 		}).done(function(num){

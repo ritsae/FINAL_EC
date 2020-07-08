@@ -12,7 +12,7 @@ $(function(){
 
     /* issueALlChart */
     $.ajax({
-        url : '/dashBoard/chart/issueAll',
+        url : 'dashBoard/chart/issueAll',
         type : 'GET',
         dataType : 'json'
     }).done(function(status){
@@ -26,7 +26,7 @@ $(function(){
 
     /* monthlyBarChart */
     $.ajax({
-        url : '/dashBoard/chart/monthlyProject',
+        url : 'dashBoard/chart/monthlyProject',
         type : 'GET',
         dataType : 'json'
     }).done(function(list){
@@ -56,7 +56,7 @@ function projectTypeChartAjax(){
 
 function projectStatusChartAjax(){
 	$.ajax({
-		url : '/dashBoard/chart/projectAll',
+		url : 'dashBoard/chart/projectAll',
 		type : 'GET',
 		dataType : 'json'
 	}).done(function(status){

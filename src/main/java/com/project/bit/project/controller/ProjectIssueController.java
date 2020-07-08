@@ -35,14 +35,14 @@ public class ProjectIssueController {
 	@GetMapping("/goProjectIssueAdd")
 	public String goProjectIssueAdd(@ModelAttribute ProjectIssueDTO projectIssueDTO, Model model, ProjectCriteria cri) {
 		model.addAttribute("projectList", projectService.getProjectAll());
-		return "/project/projectIssueInsert";
+		return "project/projectIssueInsert";
 	}
 	
 	@GetMapping("/projectIssueDetail/{issueId}")
 	public String goProjectIssueDetail(@PathVariable String issueId, Model model, ProjectCriteria cri) {
 		model.addAttribute("issue", projectIssueService.getProjectIssueOne(issueId));
 		model.addAttribute("projectList", projectService.getProjectListAll(cri));
-		return "/project/projectIssueDetail";
+		return "project/projectIssueDetail";
 	}
 	
 	@PostMapping("/postProjectIssue")

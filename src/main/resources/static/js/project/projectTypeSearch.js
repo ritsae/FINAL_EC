@@ -15,7 +15,7 @@ function typeSearch(){
 	$('#projectTypeChoice').on('change', function(){
 		var typeCode = $(this).val();
 		var name = $('#projectName').val();
-		location.href = "/project/type/search/" + typeCode;
+		location.href = "project/type/search/" + typeCode;
 	})
 }
 
@@ -23,7 +23,7 @@ function nameSearch(){
 	$('#search_btn').on('click', function(){
 		var typeCode = $('#projectTypeChoice').val();
 		var name = $('#projectName').val();
-		location.href = "/project/name/search/" + typeCode + "/" + name;
+		location.href = "project/name/search/" + typeCode + "/" + name;
 	})
 }
 
@@ -43,7 +43,7 @@ function elementEvent(){
 // search() START
 function search(){
 	$.ajax({
-		url : '/project/search',
+		url : 'project/search',
 		type : 'GET',
 		data : {
 			typeCode : $('#projectTypeChoice').val(),
@@ -57,7 +57,7 @@ function search(){
 			var project_code = value.projectCode
 			var projects = '<tr>' + 
 				'<td>' + (index+1) + '</td>' +
-				'<td><a href=/project/' + value.projectCode + '>' + value.projectName + '</a></td>' + 
+				'<td><a href=project/' + value.projectCode + '>' + value.projectName + '</a></td>' +
 				'<td>' + value.projectTypeName + '</td>' +
 				'<td>' + value.projectStart + '</td>' +
 				'<td>' + value.projectFinish + '</td>' +

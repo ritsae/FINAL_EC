@@ -28,7 +28,7 @@ public class ProjectController {
 	@Autowired private ProjectTaskService projectTaskService;
 	
 	// 프로젝트 리스트
-	@GetMapping("projectList")
+	@GetMapping("/projectList")
 	public String getProjectList(ProjectCriteria cri, Model model, @AuthenticationPrincipal UsersPrincipal user) {
 		if(user.getUsers().getDutyCode().equals("duty100")||user.getUsers().getDutyCode().equals("duty200")) {
 			model.addAttribute("projectList", projectService.getProjectListAll(cri));
@@ -38,10 +38,10 @@ public class ProjectController {
 			model.addAttribute("pageMaker", new ProjectPage(cri,projectService.getMyProjectListAllAccount(user.getUsers().getUserId())));
 		}
 		model.addAttribute("typCode", "all");
-		return "/project/getProjectList";
+		return "project/getProjectList";
 	}
 	
-	@GetMapping("project/type/search/{typeCode}")
+	@GetMapping("/project/type/search/{typeCode}")
 	public String getProjectListByType(@PathVariable("typeCode") String typeCode,
 			ProjectCriteria cri, Model model) {
 		model.addAttribute("projectList", projectService.getProjectListByType(cri, typeCode));
@@ -49,10 +49,10 @@ public class ProjectController {
 		model.addAttribute("typCode", typeCode);
 		
 		if(typeCode.equals("all")) return "redirect:/projectList";
-		return "/project/getProjectList";
+		return "project/getProjectList";
 	}
 	
-	@GetMapping("project/name/search/{typeCode}/{name}")
+	@GetMapping("/project/name/search/{typeCode}/{name}")
 	public String getProjectListSearch(@PathVariable("typeCode") String typeCode, @PathVariable("name") String name,
 			ProjectCriteria cri, Model model) {
 		if(typeCode.equals("all") && typeCode.equals("")) return "redirect:/projectList";
@@ -61,7 +61,7 @@ public class ProjectController {
 		model.addAttribute("pageMaker", new ProjectPage(cri, projectService.getPageTotal(typeCode, name)));
 		model.addAttribute("typCode", typeCode);
 		
-		return "/project/getProjectList";
+		return "project/getProjectList";
 	}
 	
 	// 프로젝트 등록

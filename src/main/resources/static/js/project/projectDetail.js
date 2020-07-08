@@ -12,7 +12,7 @@ function dropDownEvent(){
 	/* dropDown */
 	$('#pmTeamChoice').on('change', function(){		
 		$.ajax({
-			url : '/project/team',
+			url : 'project/team',
 			type : 'GET',
 			data : {
 				teamCode : $('#pmTeamChoice').val()
@@ -38,7 +38,7 @@ function dropDownEvent(){
 	
 	$('#pmoTeamChoice').on('change', function(){		
 		$.ajax({
-			url : '/project/team',
+			url : 'project/team',
 			type : 'GET',
 			data : {
 				teamCode : $('#pmoTeamChoice').val()
@@ -77,7 +77,7 @@ function insertProject(){
 		}
 		
 		$.ajax({
-			url : '/project/'+$('#projectCode').val(),
+			url : 'project/'+$('#projectCode').val(),
 			type : 'PUT',
 			data : {
 				projectName : $('#projectName').val(),
