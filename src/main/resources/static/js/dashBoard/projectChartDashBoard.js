@@ -1,4 +1,6 @@
-$(function(){
+google.charts.load('current', {
+	packages:['corechart']
+}).then(function(){
 	ajaxMethod($('#project-select'));
 	selectEvent('#project-select');
 	projectInfo($('#project-select'));
