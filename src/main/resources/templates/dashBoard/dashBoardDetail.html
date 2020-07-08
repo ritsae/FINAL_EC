@@ -2,20 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/default}">
-
-<title id="pageTitle">MAIN</title>
-<!-- page 고유 CSS 추가 -->
-<th:block layout:fragment="css">
+<head>
+    <title id="pageTitle">상세 대시보드</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="/css/dashBoard/dashBoardStyle.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
-</th:block>
-
-<!-- page 고유 스크립트 추가 -->
-<th:block layout:fragment="script">
-	<script src="/js/dashBoard/projectChartDashBoard.js"></script>
+    <!-- JS -->
+	<script th:src="@{/js/dashBoard/projectChartDashBoard.js}" src="/js/dashBoard/projectChartDashBoard.js"></script>
 <!--    <script src="/js/project/projectChart.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-</th:block>
+</head>
 
 <div layout:fragment="content">
     <div class="row">
@@ -72,28 +68,6 @@
         // select2 초기화
         $('select').select2({});
     </script>
-
-    <!--<script type="text/javascript">
-        const btn = document.getElementById('btn');
-        btn.addEventListener('click', function () {
-            const searchb = document.getElementById('searchb');
-            getData('http://localhost:8080/search?keyword='+searchb.value, {})
-                .then(
-                    /* 처리할 코드 */
-                    response=>console.log(response)
-                );
-        });
-
-        async function getData(url = '', data = {}) {
-            const response = await fetch(url, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            return response.json();
-        }
-    </script>-->
 
 </div>
 

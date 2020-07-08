@@ -2,18 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/default}">
-
-<title id="pageTitle">프로젝트 기본정보</title>
-
-<!-- page 고유 CSS 추가 -->
-<th:block layout:fragment="css">
-</th:block>
-
-<!-- page 고유 스크립트 추가 -->
-<th:block layout:fragment="script">
+<head>
+    <title id="pageTitle">프로젝트 기본정보</title>
     <script th:inline="javascript" src="/js/project/projectGantt.js"></script>
-</th:block>
-
+</head>
 
 <div layout:fragment="content">
     <div th:replace="/project/projectDetailChart :: project-top-nav"></div>
